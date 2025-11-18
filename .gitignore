@@ -1,0 +1,48 @@
+# Byte-compiled / optimized / dynamically loaded files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Tests
+.pytest_cache/
+.tox/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+*.egg-info/
+.installed.cfg
+*.manifest
+
+# Environments
+venv/
+env/
+.env
+*/venv
+*/env
+*/.venv
+
+# Jupyter Notebook/IPython
+.ipynb_checkpoints
+
+# --- Terraform Specific ---
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+crash.log
+*.tfplan
+*.tfvars
+!example.tfvars
+
+# --- General OS and Editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.bak
+*~
