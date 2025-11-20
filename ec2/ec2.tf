@@ -24,11 +24,10 @@ resource "aws_instance" "etl_worker" {
   subnet_id = module.vpc.private_subnet_ids[0]
 
   # Linked the security group and IAM role
-  vpc_security_group_ids = [aws_security_group.etl_sg.id]
+  vpc_security_group_ids = [aws_security_group.etl_sg.id, aws_security_group.ssh_access_sg.id]
   iam_instance_profile = aws_iam_instance_profile.etl_worker_profile.name
-
-  # Prevents assigning a public IP, reinforcing its private status
-  associate_public_ip_address = false
+  associate_public_ip_address = true
+  key_name = "my-ssh-key"
 
   user_data = <<-EOF
               #!/bin/bash
@@ -41,7 +40,5 @@ resource "aws_instance" "etl_worker" {
   tags = {
     Name = "ETL-Worker"
   }
-
-
 }
 
